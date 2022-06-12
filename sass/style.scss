@@ -1,0 +1,732 @@
+$mainColor: rgba(207, 173, 127, 1);
+$mainColorLighter: #eecfa4;
+$secondColor: #2D394B;
+$gradient: #162544a1;
+$black: #000;
+$lightWhite: rgb(246, 246, 246);
+$gray: gray;
+$grayLight: #EFF0F2;
+$grayDark: rgb(70, 70, 70);
+$bg: rgba(0, 0, 0, .6);
+
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Raleway', sans-serif;
+    overflow: auto;
+}
+
+.bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: $bg;
+    z-index: 0;
+}
+
+.wrapper, .contact__wrapper {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.arrowToTop {
+    display: none;
+    position: fixed;
+    bottom: 2vh;
+    right: 2vh;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    color: $lightWhite;
+    background-color: $mainColor;
+    padding: 10px;
+    border-radius: 50%;
+    z-index: 100;
+}
+
+// NAV
+main {
+    position: relative;
+}
+
+.nav {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 8vh;
+    padding: 20px 0;
+
+    &__burger-menu,
+    &__burger-contact {
+        padding: 15px;
+        font-size: 25px;
+        background: none;
+        border: none;
+        color: $mainColor;
+        cursor: pointer;
+
+    }
+
+    &__name {
+        font-size: 30px;
+        span {
+            color: $mainColor;
+        }
+
+    }
+
+    &__links {
+        position: absolute;
+        top: 10vh;
+        left: 0;
+        height: 90vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        list-style: none;
+        background-color: $mainColor;
+        width: 60%;
+        border-radius: 0 10px 10px 0;
+        transform: translateX(-100%);
+        transition: transform .4s;
+        z-index: 2;
+    }
+
+    &__link {
+        position: relative;
+        text-decoration: none;
+        color: $secondColor;
+        font-size: 18px;
+        padding: 0 40px;
+        text-align: left;
+
+        &::before {
+            position: absolute;
+            top: 0;
+            left: 30px;
+            content: '';
+            width: 2px;
+            height: 100%;
+            background-color: $secondColor;
+            transform: scaleY(0);
+            transition: transform .3s;
+        }
+
+        &:hover::before {
+            transform: scaleY(1)
+        }
+    }
+
+    &__contact {
+        position: absolute;
+        top: 10vh;
+        right: 100px;
+        background-color: $mainColor;
+        padding: 15px;
+        font-size: 19px;
+        border-radius: 10px 0 0 10px;
+        font-family: 'Montserrat', sans-serif;
+        opacity: 0;
+        z-index: 2;
+        transition: opacity .4s;
+
+        &-phone,
+        &-adress {
+            display: flex;
+            align-items: center;
+        }
+
+        .fas {
+            margin-right: 25px;
+        }
+    }
+
+    &__adress {
+        display: flex;
+        flex-direction: column;
+        padding-top: 15px;
+
+    }
+
+}
+
+// HEADER
+
+.header {
+    position: relative;
+    height: 80vh;
+    background-image: url('../img/headerSmall.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+
+    &__info {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 80%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        text-align: center;
+        z-index: 1;
+    }
+
+    &__desc {
+        font-size: 23px;
+        color: $mainColor;
+    }
+
+    &__title {
+        color: $lightWhite;
+        margin: 15px 0;
+    }
+
+    &__consultation {
+        font-size: 13px;
+        color: $lightWhite;
+
+    }
+
+    &__link {
+        padding: 5px 10px;
+        background: none;
+        border: 2px solid $mainColor;
+        cursor: pointer;
+        transition: background-color .3s;
+        text-align: center;
+
+        &:hover {
+            background-color: $mainColor;
+        }
+    }
+
+
+}
+
+.items {
+    position: relative;
+    top: -40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+}
+
+.item {
+    width: 80%;
+    margin: 20px 0;
+    color: $mainColor;
+    background-color: $lightWhite;
+    padding: 50px 20px;
+    outline: 2px solid $mainColor;
+    outline-offset: -10px;
+
+    &__icon {
+        font-size: 40px;
+        padding-bottom: 10px;
+    }
+
+    &__name {
+        font-size: 23px;
+        color: $black;
+    }
+
+}
+
+// ABOUT US
+
+.aboutUs {
+    position: relative;
+    margin: 100px 0;
+    display: flex;
+    justify-content: center;
+    background-image: url('../img/aboutBig.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+
+}
+
+.about {
+    width: 80%;
+    padding: 30px;
+    background: $secondColor;
+    color: $lightWhite;
+    z-index: 1;
+    transform: scaleY(1.1);
+
+    &__title {
+        position: relative;
+        padding-left: 60px;
+        color: $mainColor;
+
+        &::before {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            content: '';
+            height: 2px;
+            width: 50px;
+            background-color: $mainColor;
+        }
+    }
+
+    &__info {
+        margin: 20px 0 20px 0;
+    }
+
+    &__name {
+        position: relative;
+        margin: 0 0 50px 15px;
+        font-size: 18px;
+    }
+
+    &__position {
+        // font-weight: lighter;
+        font-size: 14px;
+        font-weight: lighter;
+    }
+
+    &__ceo {
+        display: none;
+    }
+
+    &__more {
+        display: flex;
+        font-display: row;
+        justify-content: space-around;
+        align-items: center;
+        text-decoration: none;
+        color: $lightWhite;
+        font-size: 13px;
+
+        .fas {
+            size: 1px;
+            margin-left: 17px;
+        }
+    }
+
+
+}
+
+// SERVICES
+.services__title {
+    text-align: center;
+}
+
+.services {
+    &__field {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        margin: 20px;
+        padding: 20px;
+        border: 1px solid $secondColor;
+        text-align: center;
+
+        &:hover {
+            border: 1px solid $lightWhite;
+            box-shadow: 0 0 15px;
+            background: url('../img/services.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            z-index: 0;
+
+            &::after {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                content: '';
+                background-color: $gradient;
+                z-index: -1;
+            }
+        }
+
+        &:hover .services__title {
+            color: $lightWhite;
+        }
+
+        &:hover .services__desc {
+            color: $lightWhite;
+        }
+
+        &:hover a {
+            background-color: $mainColor;
+        }
+    }
+
+    &__icon {
+        color: $mainColor;
+        padding: 20px 0;
+        font-size: 50px;
+    }
+
+    &__title {
+        font-weight: bold;
+        font-size: 25px;
+        margin-bottom: 20px;
+    }
+
+    &__desc {
+        line-height: 2.2;
+        margin-bottom: 20px;
+    }
+
+    &__link {
+
+        a {
+            padding: 10px 20px;
+            color: $secondColor;
+            font-size: 25px;
+        }
+    }
+
+    &__contact {
+        margin: 0 auto;
+        text-align: center;
+        padding-top: 20px;
+    }
+
+    &__more {
+        font-size: 20px;
+        padding: 7px 0;
+        text-decoration: none;
+        color: $secondColor;
+        border-bottom: 1px dashed $mainColor;
+
+        .fas {
+            font-size: 12px;
+            margin-left: 8px;
+        }
+    }
+}
+
+//EXPERIENCE
+
+.experience {
+    background-image: url('../img/expB.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-top: 50px;
+
+    &__info {
+        padding: 100px 40px;
+        color: $lightWhite;
+
+    }
+
+    &__p {
+        font-size: 22px;
+        font-weight: bold;
+        padding: 20px;
+        background-color: $bg;
+
+    }
+
+    &__desc {
+        font-size: 18px;
+        padding: 20px;
+        background-color: $bg;
+    }
+
+    &__container {
+        position: relative;
+        top: 50px;
+        bottom: 10px;
+        background-color: $secondColor;
+        border-radius: 10px;
+        box-shadow: 0 10px 7px $bg;
+
+    }
+
+    &__box1,
+    &__box2,
+    &__box3,
+    &__box4 {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 40px;
+    }
+
+    &__number {
+        font-size: 40px;
+        font-weight: bold;
+        color: $mainColor;
+
+    }
+
+    &__title {
+        font-size: 18px;
+        font-weight: bold;
+        color: $lightWhite;
+    }
+
+}
+
+//TEAM
+.team {
+    background-image: url('../img/TeamBg.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 150px 25px;
+
+    &__desc {
+        text-align: center;
+        padding-bottom: 30px;
+    }
+
+    &__p {
+        font-size: 20px;
+        color: $mainColor;
+    }
+
+    &__title {
+        font-size: 25px;
+    }
+
+    &__cards {
+        text-align: center;
+    }
+
+    &__card {
+        background: transparent;
+    }
+
+    &__name {
+        margin: 0 10px;
+        padding-top: 10px;
+        background-color: $lightWhite;
+    }
+
+    &__profession {
+        margin: 0 10px;
+        padding-bottom: 10px;
+        background-color: $lightWhite;
+        color: $mainColor;
+    }
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        padding: 0 10px;
+    }
+
+    .slick-prev::before,
+    .slick-next::before {
+        color: $secondColor;
+    }
+
+}
+
+//ADVICE
+
+.advice {
+    position: relative;
+    background: linear-gradient(rgba(207, 173, 127, .9), rgba(207, 173, 127, .9)), url('../img/FreeAdviceBg.jpg');
+    padding: 60px 10px;
+
+    &__title {
+        padding: 20px 0;
+        color: $lightWhite;
+        padding-bottom: 20px;
+        font-weight: lighter;
+        z-index: 1;
+    }
+
+    &__free {
+        color: $black;
+    }
+
+    &__button-container {
+        display: flex;
+        align-items: center;
+
+    }
+
+    &__more {
+        background: $lightWhite;
+        color: $mainColor;
+        padding: 15px;
+        border-radius: 8px;
+        margin-right: 20px;
+    }
+
+    &__all {
+        background-color: $secondColor;
+        color: $lightWhite;
+        border-radius: 8px;
+        padding: 15px;
+    }
+}
+
+
+//NEWS
+
+.news {
+    background: rgb(245, 245, 245);
+    padding: 70px 0;
+
+    &__desc {
+        text-decoration: none;
+        text-align: center;
+        padding-bottom: 25px;
+    }
+    &__card-desc {
+        text-decoration: none;
+        color: $black;
+    }
+
+    &__title {
+        padding-bottom: 15px;
+    }
+
+    &__card {
+        margin: 10px;
+        box-shadow: 0 0 9px $gray;
+        &:hover {
+            border: 1px 0 solid black;
+        }
+    }
+
+    &__p {
+        color: $gray;
+    }
+
+    &__img {
+        width: 100%;
+        height: 50%;
+        object-fit: cover;
+    }
+    &__info {
+        text-align: center;
+        padding: 25px 20px;
+    }
+    &__date{
+        padding-top: 20px;
+        color: $gray;
+        .fas{
+            color: $mainColor;
+        }
+    }
+}
+
+// CONTACT
+
+.contact{
+    padding: 40px 0 30px 0;
+    background: $secondColor;
+    text-align: center;
+    &__info{
+        color: $lightWhite;
+        padding: 30px 0 20px 0;
+    }
+    &__firm {
+        padding: 40px 5px 30px 5px;
+        text-align: center;
+    }
+    &__media {
+        display: flex;
+        width: 100%;
+        color: $lightWhite;
+        i{
+            margin: 0 10px;
+            padding: 0 10px;
+            font-size: 23px;
+        }
+    }
+
+    &__service {
+        padding: 40px 5px 30px 5px;
+    }
+    &__section-title {
+        font-size: 25px;
+        color: $mainColor;
+        text-transform: uppercase;
+        padding-bottom: 15px;
+        font-weight: bold;
+    }
+    &__li {
+        list-style: none;
+        color: $lightWhite;
+        font-size: 18px;
+        padding: 5px 0;
+    }
+    &__address {
+        padding: 40px 5px 30px 5px;
+        color: $lightWhite;
+        .fas {
+            font-size: 18px;
+        }
+
+    }
+    &__phone, &__location, &__mail {
+        padding: 18px 0;
+    }
+
+    &__working-hours {
+        padding: 40px 5px 30px 5px;
+        color: $lightWhite;
+    }
+    &__day-box {
+        padding: 7px 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid $lightWhite;
+    }
+
+}
+
+.footer {
+    border-top: 1px solid $gray;
+    color: $lightWhite;
+    display: flex;
+    justify-content: center;
+    &__actual-year {
+        padding: 0 5px;
+    }
+}
+
+
+
+
+.footer {
+    background: $secondColor;
+}
+
+.showNavMenu {
+    transform: translateX(0%)
+}
+
+.showNavContact {
+    opacity: 1;
+}
+
+@import '../sass/small.scss';
+@import '../sass/medium.scss';
+@import '../sass/large.scss';

@@ -1,0 +1,165 @@
+$mainColor: #cfad7f;
+$secondColor: #2D394B;
+$black: #000;
+$lightWhite: #fff;
+
+@media (min-width: 768px) {
+    .nav__name {
+        font-size: 35px;
+    }
+
+    .header {
+        &__desc {
+            font-size: 35px;
+        }
+
+        &__title {
+            font-size: 35px;
+        }
+
+        &__consultation {
+            font-size: 16px;
+        }
+
+        &__info {
+            padding: 10px 20px;
+        }
+
+        &__link {
+            padding: 10px 20px;
+        }
+    }
+
+    .about {
+        padding: 50px;
+
+        &__title {
+            position: relative;
+
+            &::after {
+                position: absolute;
+                top: -15px;
+                left: -25px;
+                content: '';
+                width: 50px;
+                height: 50px;
+                border-top: 1px solid $lightWhite;
+                border-left: 1px solid $lightWhite;
+            }
+        }
+
+        &__more {
+            display: flex;
+            font-display: row;
+            justify-content: space-around;
+            align-items: center;
+            text-decoration: none;
+            color: $lightWhite;
+        }
+
+
+        &__name {
+            position: relative;
+
+            &::after {
+                position: absolute;
+                bottom: -20px;
+                right: -10px;
+                content: '';
+                width: 50px;
+                height: 50px;
+                border-bottom: 1px solid $lightWhite;
+                border-right: 1px solid $lightWhite;
+            }
+        }
+
+    }
+
+    .services {
+        &__areas {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+
+        }
+
+        &__box1 {
+            grid-column: 1/2;
+            grid-row: 1/2;
+        }
+
+        &__box2 {
+            grid-column: 2/3;
+            grid-row: 1/2;
+        }
+
+        &__box3 {
+            grid-column: 1/2;
+            grid-row: 2/3;
+        }
+
+        &__box4 {
+            grid-column: 2/3;
+            grid-row: 2/3;
+        }
+    }
+
+    .experience {
+        &__container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+
+        }
+
+        &__box1 {
+            grid-column: 1/2;
+            grid-row: 1/2;
+        }
+
+        &__box2 {
+            grid-column: 2/3;
+            grid-row: 1/2;
+        }
+
+        &__box3 {
+            grid-column: 1/2;
+            grid-row: 2/3;
+        }
+
+        &__box4 {
+            grid-column: 2/3;
+            grid-row: 2/3;
+        }
+    }
+
+    .news__cards {
+        display: flex;
+    }
+
+    .contact__wrapper {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr;
+        &__firm {
+            grid-column: 1/2;
+            grid-row: 1/2;
+        }
+
+        &__service {
+            grid-column: 2/3;
+            grid-row: 1/2;
+        }
+
+        &__address {
+            grid-column: 1/2;
+            grid-row: 2/3;
+        }
+
+        &__working-hours {
+            grid-column: 2/3;
+            grid-row: 2/3;
+        }
+
+    }
+}
